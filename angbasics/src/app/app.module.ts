@@ -8,6 +8,7 @@ import { CarComponent } from './Components/car/car.component';
 import { ContactComponent } from './Components/contact/contact.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserComponent } from './Components/user/user.component';
+import { BorderChangeDirective } from './Directive/border-change.directive';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { UserComponent } from './Components/user/user.component';
     ShopComponent,
     CarComponent,
     ContactComponent,
-    UserComponent
+    UserComponent,
+    BorderChangeDirective
   ],
   imports: [
     BrowserModule,
