@@ -22,7 +22,9 @@ export class CarService {
   addCars(txtName:string, txtManufacturer:string, txtPrice:string, txtYear:string){
     this.carsInfo.unshift(new Cars(txtName, txtManufacturer, parseInt(txtPrice), parseInt(txtYear), './assets/alto.jpg', false));
   }
-
+  editCar(){
+    
+  }
   deleteCar(car:Cars){
     this.carsInfo.splice(this.carsInfo.indexOf(car), 1);
   }
