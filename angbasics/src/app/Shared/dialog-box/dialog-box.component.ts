@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'dialog-box',
@@ -9,6 +10,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class DialogBoxComponent implements OnInit {
   @Input() title: string = '';
   @Input() showHide?: boolean;
+  @Output() onClose = new EventEmitter();
 
   constructor() { }
 
@@ -17,5 +19,6 @@ export class DialogBoxComponent implements OnInit {
 
   closeDialog(){
     this.showHide = false;
+    this.onClose.emit('Dialog Closed');
   }
 }

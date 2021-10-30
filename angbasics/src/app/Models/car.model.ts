@@ -7,7 +7,8 @@ export class Cars {
         public price: number, 
         public year: number, 
         public imagepath:string, 
-        hidden:boolean
+        hidden:boolean,
+        public editmode?: boolean
     ){
         this.hide = hidden;
     }

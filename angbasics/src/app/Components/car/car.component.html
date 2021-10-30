@@ -2,15 +2,35 @@
 <h4>{{compTitle}}</h4>
 
 <button class="btn btn-primary" data-toggle="modal" data-target="#myModal" (click)="showAddCarDialog()">Add Car</button>
-
-<dialog-box title="Add New Car"  [showHide]="ShowDialog">
-<div> 
-    Name <input type="text" id="txtName" #txtName BorderChange>
-    Manufacturer <input type="text" id="txtManufacturer" #txtManufacturer >
-    Price <input type="text" id="txtPrice" #txtPrice >
-    Year <input type="text" id="txtYear" #txtYear >
-    <button type="button" class="btn btn-success" (click)="addCar(txtName.value, txtManufacturer.value, txtPrice.value, txtYear.value)">Add</button>
-</div>
+<br>
+<dialog-box title="Add New Car" [showHide]="ShowDialog" (onClose)="dialogClosed()">
+    <div class="form-group">
+        <div>
+            <label>Name</label>
+            <input class="form-control" type="text" id="txtName" #txtName BorderChange><br>
+        </div> 
+        
+        <div>
+            <label>Manufacturer</label>
+            <input class="form-control" type="text" id="txtManufacturer" #txtManufacturer ><br>
+        </div>
+        
+        <div>
+            <label>Price</label>
+            <input class="form-control" type="text" id="txtPrice" #txtPrice ><br>
+        </div>
+        
+        <div>
+            <label>Year</label>
+            <input class="form-control" type="text" id="txtYear" #txtYear ><br>
+        </div>
+        
+        <div>
+            <button type="button" class="btn btn-success" (click)="addCar(txtName.value, txtManufacturer.value, txtPrice.value, txtYear.value)">Save</button>
+            &nbsp;
+            <button type="button" class="btn btn-default" (click)="dialogClosed()">Cancel</button>
+        </div>
+    </div>
 </dialog-box>
 
 <br>
@@ -27,18 +47,32 @@
     </thead>
     <tbody>
         <tr *ngFor="let car of carsInfo">
-            <td>{{car?.name}}</td>
-            <td>{{car?.manufacturer}}</td>
-            <td>{{car?.price}}</td>
-            <td>{{car?.year}}</td>
+            <td>
+                <p *ngIf="!car.editmode">{{car?.name}}</p>
+                <p *ngIf="car.editmode"><input type="text" name="name" [(ngModel)]="car.name"></p>
+            </td>
+            <td>
+                <p *ngIf="!car.editmode">{{car?.manufacturer}}</p>
+                <p *ngIf="car.editmode"> <input type="text" name="manufacturer" [(ngModel)]="car.manufacturer"></p>
+            </td>
+            <td>
+                <p *ngIf="!car.editmode"> {{car?.price}}</p>
+                <p *ngIf="car.editmode"><input type="text" name="price" [(ngModel)]="car.price"></p>
+            </td>
+            <td>
+                <p *ngIf="!car.editmode">{{car?.year}}</p>
+                <p *ngIf="car.editmode"><input type="text" name="year" [(ngModel)]="car.year"></p>
+            </td>
             <td>
                 <p [hidden]="car?.hide">
                     <img id="img-1" [src]="car?.imagepath" height="80" width="100" />
                 </p>
             </td>
-            <td><button class="btn btn-primary" (click)="showHide(car)">Show/Hide</button><br>          
-                <button class="btn btn-primary" (click)="editCar(car)">Edit</button><br>
-                <button class="btn btn-primary" (click)="deleteCar(car)">Delete</button></td>
+            <td><button class="btn btn-primary" (click)="showHide(car)">Show/Hide</button><br><br>
+                <p *ngIf="!car.editmode"><button class="btn btn-primary" (click)="editCar(car)">Edit</button><br></p>
+                <p *ngIf="car.editmode"><button class="btn btn-primary" (click)="editCar(car)">Save</button><br></p>
+                <button class="btn btn-primary" (click)="deleteCar(car)">Delete</button>
+            </td>
         </tr>
     </tbody>
 </table>
