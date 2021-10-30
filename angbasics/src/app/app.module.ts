@@ -9,6 +9,8 @@ import { ContactComponent } from './Components/contact/contact.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserComponent } from './Components/user/user.component';
 import { BorderChangeDirective } from './Directive/border-change.directive';
+import { BlinkDirective } from './Directive/blink.directive';
+import { DialogBoxComponent } from './Shared/dialog-box/dialog-box.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { BorderChangeDirective } from './Directive/border-change.directive';
     CarComponent,
     ContactComponent,
     UserComponent,
-    BorderChangeDirective
+    BorderChangeDirective,
+    BlinkDirective,
+    DialogBoxComponent
   ],
   imports: [
     BrowserModule,

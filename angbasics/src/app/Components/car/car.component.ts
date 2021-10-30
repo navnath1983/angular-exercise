@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Cars } from 'src/app/Models/car.model';
 import { CarService } from 'src/app/Services/car.service';
 
@@ -7,8 +7,11 @@ import { CarService } from 'src/app/Services/car.service';
   templateUrl: './car.component.html',
   styleUrls: ['./car.component.css']
 })
+
 export class CarComponent implements OnInit {
-  
+  @Input() compTitle:string = '';
+  ShowDialog:boolean = false;
+
   carsInfo = [];    
 
   constructor( public DataService:CarService) { }
@@ -21,6 +24,10 @@ export class CarComponent implements OnInit {
     this.DataService.toggleCar(car);
   }
   
+  showAddCarDialog(){
+    this.ShowDialog = true;
+  }
+
   addCar(txtName:string, txtManufacturer:string, txtPrice:string, txtYear:string) {
     this.DataService.addCars(txtName, txtManufacturer, txtPrice, txtYear);
   }

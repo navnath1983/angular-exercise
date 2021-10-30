@@ -1,11 +1,18 @@
 <h3>Cars Information</h3>
-<div>
+<h4>{{compTitle}}</h4>
+
+<button class="btn btn-primary" data-toggle="modal" data-target="#myModal" (click)="showAddCarDialog()">Add Car</button>
+
+<dialog-box title="Add New Car"  [showHide]="ShowDialog">
+<div> 
     Name <input type="text" id="txtName" #txtName BorderChange>
     Manufacturer <input type="text" id="txtManufacturer" #txtManufacturer >
     Price <input type="text" id="txtPrice" #txtPrice >
     Year <input type="text" id="txtYear" #txtYear >
     <button type="button" class="btn btn-success" (click)="addCar(txtName.value, txtManufacturer.value, txtPrice.value, txtYear.value)">Add</button>
 </div>
+</dialog-box>
+
 <br>
 <table class="table table-bordered table-striped table-hover">
     <thead>
