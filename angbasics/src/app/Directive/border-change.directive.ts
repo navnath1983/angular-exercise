@@ -23,6 +23,6 @@ export class BorderChangeDirective implements OnInit{
 
   onBlur(){
     this.el.nativeElement.style.backgroundColor = 'white';
-    this.ren.setStyle(this.el.nativeElement, 'border', '1px solid #666')
+    this.ren.setStyle(this.el.nativeElement, 'border', '1px solid #ccc')
   }
 }

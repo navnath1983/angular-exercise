@@ -13,6 +13,7 @@ export class CarComponent implements OnInit {
   ShowDialog:boolean = false;
 
   carsInfo = [];    
+  newCarInfo:Cars;
 
   constructor( public DataService:CarService) { }
 
@@ -26,6 +27,9 @@ export class CarComponent implements OnInit {
   
   showAddCarDialog(){
     this.ShowDialog = true;
+    for(let i=0; i<this.carsInfo.length; i++){
+      this.carsInfo[i].editmode = false;
+    }
   }
   dialogClosed(){
     this.ShowDialog = false;
@@ -40,6 +44,10 @@ export class CarComponent implements OnInit {
     car.editmode = true;
   }
 
+  saveCar(car:Cars){
+    this.DataService.editCar(car);
+  }
+  
   deleteCar(car:Cars){
    this.DataService.deleteCar(car);  
   }

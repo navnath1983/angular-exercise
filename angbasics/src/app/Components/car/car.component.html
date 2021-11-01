@@ -1,36 +1,37 @@
-<h3>Cars Information</h3>
-<h4>{{compTitle}}</h4>
-
+<h3>{{compTitle}}</h3>
+<br>
 <button class="btn btn-primary" data-toggle="modal" data-target="#myModal" (click)="showAddCarDialog()">Add Car</button>
 <br>
 <dialog-box title="Add New Car" [showHide]="ShowDialog" (onClose)="dialogClosed()">
-    <div class="form-group">
-        <div>
-            <label>Name</label>
-            <input class="form-control" type="text" id="txtName" #txtName BorderChange><br>
-        </div> 
-        
-        <div>
-            <label>Manufacturer</label>
-            <input class="form-control" type="text" id="txtManufacturer" #txtManufacturer ><br>
+        <div class="form-group">
+            <div>
+                <label>Name</label>
+                <input class="form-control" type="text" id="txtName" #txtName BorderChange >
+                <br>
+            </div>
+    
+            <div>
+                <label>Manufacturer</label>
+                <input class="form-control" type="text" id="txtManufacturer" #txtManufacturer BorderChange ><br>
+            </div>
+    
+            <div>
+                <label>Price</label>
+                <input class="form-control" type="text" id="txtPrice" #txtPrice BorderChange ><br>
+            </div>
+    
+            <div>
+                <label>Year</label>
+                <input class="form-control" type="text" id="txtYear" #txtYear BorderChange ><br>
+            </div>
+    
+            <div>
+                <button type="button" class="btn btn-success"
+                    (click)="addCar(txtName.value, txtManufacturer.value, txtPrice.value, txtYear.value)">Save</button>
+                &nbsp;
+                <button type="button" class="btn btn-default" (click)="dialogClosed()">Cancel</button>
+            </div>
         </div>
-        
-        <div>
-            <label>Price</label>
-            <input class="form-control" type="text" id="txtPrice" #txtPrice ><br>
-        </div>
-        
-        <div>
-            <label>Year</label>
-            <input class="form-control" type="text" id="txtYear" #txtYear ><br>
-        </div>
-        
-        <div>
-            <button type="button" class="btn btn-success" (click)="addCar(txtName.value, txtManufacturer.value, txtPrice.value, txtYear.value)">Save</button>
-            &nbsp;
-            <button type="button" class="btn btn-default" (click)="dialogClosed()">Cancel</button>
-        </div>
-    </div>
 </dialog-box>
 
 <br>
@@ -68,10 +69,11 @@
                     <img id="img-1" [src]="car?.imagepath" height="80" width="100" />
                 </p>
             </td>
-            <td><button class="btn btn-primary" (click)="showHide(car)">Show/Hide</button><br><br>
-                <p *ngIf="!car.editmode"><button class="btn btn-primary" (click)="editCar(car)">Edit</button><br></p>
-                <p *ngIf="car.editmode"><button class="btn btn-primary" (click)="editCar(car)">Save</button><br></p>
-                <button class="btn btn-primary" (click)="deleteCar(car)">Delete</button>
+            <td>
+                <button class="btn btn-default" (click)="showHide(car)">Show/Hide</button><br>
+                <button *ngIf="!car.editmode"class="btn btn-default" (click)="editCar(car)">Edit</button>
+                <button *ngIf="car.editmode" class="btn btn-success" (click)="saveCar(car)">Save</button>
+                <br><button class="btn btn-default" (click)="deleteCar(car)">Delete</button>
             </td>
         </tr>
     </tbody>
