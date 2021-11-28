@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ToDoComponent } from './to-do.component';
+import { UserRegistrationComponent } from './user-registration.component';
 
-describe('ToDoComponent', () => {
-  let component: ToDoComponent;
-  let fixture: ComponentFixture<ToDoComponent>;
+describe('UserRegistrationComponent', () => {
+  let component: UserRegistrationComponent;
+  let fixture: ComponentFixture<UserRegistrationComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ToDoComponent ]
+      declarations: [ UserRegistrationComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ToDoComponent);
+    fixture = TestBed.createComponent(UserRegistrationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -12,7 +12,7 @@ import { BorderChangeDirective } from './Directive/border-change.directive';
 import { BlinkDirective } from './Directive/blink.directive';
 import { DialogBoxComponent } from './@Shared/dialog-box/dialog-box.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ToDoComponent } from './Components/to-do/to-do.component'
+import { UserRegistrationComponent } from './Components/user-registration/user-registration.component'
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { ToDoComponent } from './Components/to-do/to-do.component'
     BorderChangeDirective,
     BlinkDirective,
     DialogBoxComponent,
-    ToDoComponent
+    UserRegistrationComponent
   ],
   imports: [
     BrowserModule,

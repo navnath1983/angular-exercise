@@ -1,0 +1,46 @@
+<h3>User Details</h3>
+<br>
+
+<form id="userRegForm" #userForm="ngForm" name="userRegForm">
+    <div>
+        <div class="form-group">
+            <label class="col-md-2">Id</label>
+            <p class="col-md-10">
+                <input type="text" name="userid" class="form-control" [(ngModel)]="currentUser.id">
+            </p>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2">Name</label>
+            <p class="col-sm-10">
+                <input type="text" name="username" class="form-control">
+            </p>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2">Phone</label>
+            <p class="col-sm-10">
+                <input type="text" name="userphone" class="form-control">
+            </p>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2">City</label>
+            <p class="col-sm-10">
+                <input type="text" name="usercity" class="form-control">
+            </p>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2">Zip</label>
+            <p class="col-sm-10">
+                <input type="text" name="userzip" class="form-control">
+            </p>
+        </div>
+    </div>
+        <div>
+            <label class="col-sm-2"></label>
+            <p class="col-sm-10">
+                <button type="button" class="btn btn-primary" (click)="sendUserData()">Add</button> &nbsp;
+                <button type="button" class="btn btn-primary" (click)="getUserData()">Edit</button> &nbsp;
+                <button type="button" class="btn btn-primary" (click)="delUserData()">Delete</button>
+            </p>
+        </div>
+    
+</form>

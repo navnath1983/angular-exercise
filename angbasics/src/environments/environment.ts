@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://jsonplaceholder.typicode.com/todos'
+  apiUrl: 'https://jsonplaceholder.typicode.com/todos',
+  apiUrlUser: 'https://6180a4108bfae60017adfb81.mockapi.io/api/users'
 };
 
 /*
